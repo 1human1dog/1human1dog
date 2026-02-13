@@ -28,6 +28,12 @@ h1, p {
  50% { text-shadow: 0 0 16px rgba(0,180,255,1), 0 0 32px rgba(0,180,255,0.8); }
  100% { text-shadow: 0 0 6px rgba(0,180,255,0.6), 0 0 16px rgba(0,180,255,0.4); }
 }
+@keyframes signalGlow{
+ 0%{ text-shadow:0 0 4px rgba(0,180,255,.4),0 0 12px rgba(0,180,255,.3);}
+ 50%{ text-shadow:0 0 18px rgba(0,180,255,1),0 0 40px rgba(0,180,255,.8);}
+ 100%{ text-shadow:0 0 4px rgba(0,180,255,.4),0 0 12px rgba(0,180,255,.3);}
+}
+
 </style>
 </head>
 
@@ -58,7 +64,8 @@ src="https://www.youtube.com/embed/videoseries?list=UU9W371pV3VHzn3BP3B61Drg"
 
 <div class="liveWrap">
 
-<div class="noSignal">NO SIGNAL</div>
+<div class="noSignal">SUBJECT OFFLINE</div>
+
 
 <iframe width="900" height="506"
 src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
