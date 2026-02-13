@@ -37,13 +37,17 @@ h1, p {
  100%{ text-shadow:0 0 4px rgba(0,180,255,.4),0 0 12px rgba(0,180,255,.3);}
 }
 
-/* SUBJECT OFFLINEの文字 */
 .noSignal{
- font-size:40px;
- margin:25px 0;
- color:#eaf6ff;
- letter-spacing:4px;
- animation: signalGlow 3.5s ease-in-out infinite;
+ color:#b6ffb6;
+ animation: greenGlow 2.5s ease-in-out infinite;
+ font-weight:bold;
+ letter-spacing:2px;
+}
+
+@keyframes greenGlow{
+ 0%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
+ 50%{ text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,.9);}
+ 100%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
 }
 
 /* ライブ枠中央寄せ */
@@ -82,7 +86,8 @@ allowfullscreen>
 
 <div class="liveWrap">
 
-<div class="noSignal">SUBJECT OFFLINE</div>
+<div class="noSignal">STATUS UNKNOWN</div>
+
 
 <iframe width="900" height="506"
 src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
