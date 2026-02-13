@@ -5,6 +5,26 @@
 <title>観測室</title>
 
 <style>
+.noise{
+ position:fixed;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ pointer-events:none;
+ background-image:url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+ opacity:0.15;
+ animation: noiseMove 0.4s infinite;
+}
+
+@keyframes noiseMove{
+ 0%{transform:translate(0,0)}
+ 25%{transform:translate(-1%,1%)}
+ 50%{transform:translate(1%,-1%)}
+ 75%{transform:translate(-1%,-1%)}
+ 100%{transform:translate(1%,1%)}
+}
+
 body{
  background:#111;
  color:#ddd;
@@ -12,13 +32,14 @@ body{
  font-family:sans-serif;
  padding-top:8%;
 }
+<div class="noise"></div>
+
 
 iframe{
  border:none;
  margin-top:30px;
 }
 
-/* 通常テキストの呼吸光 */
 h1, p {
  color:#eaf6ff;
  animation: breathe 4s ease-in-out infinite;
@@ -30,7 +51,6 @@ h1, p {
  100% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
 }
 
-/* SUBJECT OFFLINE専用の強い発光 */
 @keyframes signalGlow{
  0%{ text-shadow:0 0 4px rgba(0,180,255,.4),0 0 12px rgba(0,180,255,.3);}
  50%{ text-shadow:0 0 18px rgba(0,180,255,1),0 0 40px rgba(0,180,255,.8);}
@@ -50,7 +70,6 @@ h1, p {
  100%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
 }
 
-/* ライブ枠中央寄せ */
 .liveWrap{
  display:flex;
  flex-direction:column;
