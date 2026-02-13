@@ -5,51 +5,47 @@
 <title>観測室</title>
 
 <style>
-body {
-  background:#111;
-  color:#ddd;
-  text-align:center;
-  font-family:sans-serif;
-  padding-top:8%;
+body{
+ background:#111;
+ color:#ddd;
+ text-align:center;
+ font-family:sans-serif;
+ padding-top:8%;
 }
 
-/* iframe */
-iframe {
-  border:none;
-  margin-top:30px;
+iframe{
+ border:none;
+ margin-top:30px;
 }
 
-/* 呼吸光文字 */
 h1, p {
-  color:#eaf6ff;
-  animation: breathe 4s ease-in-out infinite;
+ color:#eaf6ff;
+ animation:breathe 4s ease-in-out infinite;
 }
 
 @keyframes breathe {
-  0% { text-shadow:0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
-  50% { text-shadow:0 0 16px rgba(0,255,140,1), 0 0 32px rgba(0,255,140,0.8); }
-  100% { text-shadow:0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
+ 0% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
+ 50% { text-shadow: 0 0 16px rgba(0,255,140,1), 0 0 32px rgba(0,255,140,0.8); }
+ 100% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
 }
 
-/* LIVE STATUS 光文字 */
-.noSignal {
-  color:#b6ffb6;
-  font-weight:bold;
-  letter-spacing:2px;
-  animation: greenGlow 2.5s ease-in-out infinite;
+.noSignal{
+ color:#b6ffb6;
+ animation: greenGlow 2.5s ease-in-out infinite;
+ font-weight:bold;
+ letter-spacing:2px;
 }
 
-@keyframes greenGlow {
-  0% { text-shadow:0 0 4px rgba(0,255,120,0.4),0 0 12px rgba(0,255,120,0.3); }
-  50% { text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,0.9); }
-  100% { text-shadow:0 0 4px rgba(0,255,120,0.4),0 0 12px rgba(0,255,120,0.3); }
+@keyframes greenGlow{
+ 0%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
+ 50%{ text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,.9);}
+ 100%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
 }
 
-/* LIVE部分ラップ */
-.liveWrap {
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+.liveWrap{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
 }
 </style>
 </head>
@@ -70,28 +66,35 @@ h1, p {
 <p dir="rtl">لا يوجد صوت</p>
 <p dir="rtl">هذا الفيديو متاح للعامة</p>
 
-<!-- 通常動画 -->
-<iframe width="900" height="506"
-src="https://www.youtube.com/embed/videoseries?list=UU9W371pV3VHzn3BP3B61Drg"
-allowfullscreen>
-</iframe>
+<!-- 過去動画ランダム再生 -->
+<iframe id="pastVideo" width="900" height="506" allowfullscreen></iframe>
 
 <br><br>
-
 <p>LIVE FEED</p>
 
 <div class="liveWrap">
+  <div class="noSignal">STATUS UNKNOWN</div>
 
-<!-- LIVEステータス -->
-<div class="noSignal">STATUS UNKNOWN</div>
-
-<!-- ライブ配信 -->
-<iframe width="900" height="506"
-src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
-allowfullscreen>
-</iframe>
-
+  <!-- ライブ配信 -->
+  <iframe width="900" height="506"
+  src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
+  allowfullscreen>
+  </iframe>
 </div>
+
+<script>
+// 過去動画のIDを配列に入れる
+const videos = [
+  "jtHBEX1xwao",
+  "Z1aGd8W2br0",
+  "i5iGwcwmgAw"
+];
+
+// ランダムで1本選んでiframeにセット
+const randomVideo = videos[Math.floor(Math.random() * videos.length)];
+document.getElementById("pastVideo").src = "https://www.youtube.com/embed/" + randomVideo;
+</script>
 
 </body>
 </html>
+
