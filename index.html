@@ -20,10 +20,13 @@ iframe{
 
 h1, p {
  color:#eaf6ff;
- text-shadow:
- 0 0 6px rgba(0,180,255,0.9),
- 0 0 16px rgba(0,180,255,0.6),
- 0 0 28px rgba(0,180,255,0.35);
+ animation: breathe 4s ease-in-out infinite;
+}
+
+@keyframes breathe {
+ 0% { text-shadow: 0 0 6px rgba(0,180,255,0.6), 0 0 16px rgba(0,180,255,0.4); }
+ 50% { text-shadow: 0 0 16px rgba(0,180,255,1), 0 0 32px rgba(0,180,255,0.8); }
+ 100% { text-shadow: 0 0 6px rgba(0,180,255,0.6), 0 0 16px rgba(0,180,255,0.4); }
 }
 </style>
 </head>
