@@ -30,4 +30,66 @@ h1, p {
  100% { text-shadow: 0 0 6px rgba(0,180,255,0.6), 0 0 16px rgba(0,180,255,0.4); }
 }
 
-/* SUBJECT O*
+/* SUBJECT OFFLINE専用の強い発光 */
+@keyframes signalGlow{
+ 0%{ text-shadow:0 0 4px rgba(0,180,255,.4),0 0 12px rgba(0,180,255,.3);}
+ 50%{ text-shadow:0 0 18px rgba(0,180,255,1),0 0 40px rgba(0,180,255,.8);}
+ 100%{ text-shadow:0 0 4px rgba(0,180,255,.4),0 0 12px rgba(0,180,255,.3);}
+}
+
+/* SUBJECT OFFLINEの文字 */
+.noSignal{
+ font-size:40px;
+ margin:25px 0;
+ color:#eaf6ff;
+ letter-spacing:4px;
+ animation: signalGlow 3.5s ease-in-out infinite;
+}
+
+/* ライブ枠中央寄せ */
+.liveWrap{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+}
+</style>
+</head>
+
+<body>
+
+<h1>この空間は公開されています</h1>
+
+<p>音声はありません。</p>
+<p>干渉はできません。</p>
+<p>この映像は公開されています。</p>
+
+<p>This space is being observed.</p>
+<p>No audio is transmitted.</p>
+<p>This video is publicly available.</p>
+
+<p dir="rtl">هذه المساحة تحت المراقبة</p>
+<p dir="rtl">لا يوجد صوت</p>
+<p dir="rtl">هذا الفيديو متاح للعامة</p>
+
+<iframe width="900" height="506"
+src="https://www.youtube.com/embed/videoseries?list=UU9W371pV3VHzn3BP3B61Drg"
+allowfullscreen>
+</iframe>
+
+<br><br>
+
+<p>LIVE FEED</p>
+
+<div class="liveWrap">
+
+<div class="noSignal">SUBJECT OFFLINE</div>
+
+<iframe width="900" height="506"
+src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</body>
+</html>
