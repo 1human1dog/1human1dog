@@ -74,12 +74,12 @@ h1, p {
 <div class="liveWrap">
   <div class="noSignal">STATUS UNKNOWN</div>
 
- <iframe width="900" height="506"
-src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-allowfullscreen>
-</iframe>
-
+  <iframe width="900" height="506"
+  src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+  </iframe>
+</div>
 
 <script>
 const videos = [
@@ -88,9 +88,9 @@ const videos = [
   "i5iGwcwmgAw"
 ];
 
-
 const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-document.getElementById("pastVideo").src = "https://www.youtube.com/embed/" + randomVideo;
+document.getElementById("pastVideo").src =
+"https://www.youtube.com/embed/" + randomVideo;
 </script>
 
 </body>
