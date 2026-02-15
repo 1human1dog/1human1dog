@@ -18,28 +18,28 @@ iframe{
  margin-top:30px;
 }
 
-h1, p {
+h1,p{
  color:#eaf6ff;
  animation:breathe 4s ease-in-out infinite;
 }
 
-@keyframes breathe {
- 0% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
- 50% { text-shadow: 0 0 16px rgba(0,255,140,1), 0 0 32px rgba(0,255,140,0.8); }
- 100% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
+@keyframes breathe{
+ 0%{text-shadow:0 0 6px rgba(0,255,140,.6),0 0 16px rgba(0,255,140,.4);}
+ 50%{text-shadow:0 0 16px rgba(0,255,140,1),0 0 32px rgba(0,255,140,.8);}
+ 100%{text-shadow:0 0 6px rgba(0,255,140,.6),0 0 16px rgba(0,255,140,.4);}
 }
 
 .noSignal{
  color:#b6ffb6;
- animation: greenGlow 2.5s ease-in-out infinite;
+ animation:greenGlow 2.5s ease-in-out infinite;
  font-weight:bold;
  letter-spacing:2px;
 }
 
 @keyframes greenGlow{
- 0%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
- 50%{ text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,.9);}
- 100%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
+ 0%{text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
+ 50%{text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,.9);}
+ 100%{text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
 }
 
 .liveWrap{
@@ -60,39 +60,3 @@ h1, p {
 
 <p>This space is being observed.</p>
 <p>No audio is transmitted.</p>
-<p>This video is publicly available.</p>
-
-<p dir="rtl">هذه المساحة تحت المراقبة</p>
-<p dir="rtl">لا يوجد صوت</p>
-<p dir="rtl">هذا الفيديو متاح للعامة</p>
-
-<iframe id="pastVideo" width="900" height="506" allowfullscreen></iframe>
-
-<br><br>
-<p>LIVE FEED</p>
-
-<div class="liveWrap">
-  <div class="noSignal">STATUS UNKNOWN</div>
-
-  <iframe width="900" height="506"
-  src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  allowfullscreen>
-  </iframe>
-</div>
-
-<script>
-const videos = [
-  "jtHBEX1xwao",
-  "Z1aGd8W2br0",
-  "i5iGwcwmgAw"
-];
-
-const randomVideo = videos[Math.floor(Math.random() * videos.length)];
-document.getElementById("pastVideo").src =
-"https://www.youtube.com/embed/" + randomVideo;
-</script>
-
-</body>
-</html>
-
