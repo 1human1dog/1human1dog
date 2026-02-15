@@ -10,40 +10,38 @@ body{
  color:#ddd;
  text-align:center;
  font-family:sans-serif;
- padding-top:8%;
+ padding-top:5%;
 }
 
 iframe{
  border:none;
- margin-top:30px;
+ margin-top:15px;
 }
 
 /* タイトル光 */
-h1, p {
+h1,p{
  color:#eaf6ff;
  animation:breathe 4s ease-in-out infinite;
 }
 
-@keyframes breathe {
- 0% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
- 50% { text-shadow: 0 0 16px rgba(0,255,140,1), 0 0 32px rgba(0,255,140,0.8); }
- 100% { text-shadow: 0 0 6px rgba(0,255,140,0.6), 0 0 16px rgba(0,255,140,0.4); }
+@keyframes breathe{
+0%{text-shadow:0 0 6px rgba(0,255,140,.6),0 0 16px rgba(0,255,140,.4);}
+50%{text-shadow:0 0 16px rgba(0,255,140,1),0 0 32px rgba(0,255,140,.8);}
+100%{text-shadow:0 0 6px rgba(0,255,140,.6),0 0 16px rgba(0,255,140,.4);}
+}
+
+/* 枠 */
+.box{
+ margin:40px auto;
 }
 
 /* 状態表示 */
-.statusBox{
- position:absolute;
- top:15px;
- left:15px;
- padding:6px 14px;
- background:#000a;
- color:#b6ffb6;
+.status{
+ margin-bottom:10px;
  font-weight:bold;
- border-radius:6px;
  letter-spacing:2px;
 }
 
-/* LIVE表示 */
 .live{
  color:#ff3b3b;
 }
@@ -59,18 +57,13 @@ h1, p {
 }
 
 @keyframes blink{
- 0%{opacity:1;}
- 50%{opacity:.3;}
- 100%{opacity:1;}
-}
-
-.liveWrap{
- position:relative;
- display:inline-block;
+0%{opacity:1;}
+50%{opacity:.3;}
+100%{opacity:1;}
 }
 
 button{
- margin-top:25px;
+ margin-top:15px;
  padding:10px 20px;
  background:#111;
  color:#fff;
@@ -100,56 +93,76 @@ button:hover{
 <p dir="rtl">هذا الفيديو متاح للعامة</p>
 
 
-<div class="liveWrap">
+<!-- ================= LIVE枠 ================= -->
 
-<div id="status" class="statusBox">STATUS UNKNOWN</div>
+<div class="box">
+
+<div id="liveStatus" class="status">STATUS UNKNOWN</div>
 
 <iframe
 id="liveFrame"
 width="900"
 height="506"
 src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
-allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 allowfullscreen>
 </iframe>
 
 </div>
 
+
+
+<!-- ================= ランダム動画枠 ================= -->
+
+<div class="box">
+
+<div class="status">ARCHIVE RANDOM</div>
+
+<iframe
+id="randomFrame"
+width="900"
+height="506"
+allowfullscreen>
+</iframe>
+
 <br>
-<button onclick="playRandom()">ランダムアーカイブ再生</button>
+<button onclick="playRandom()">別の映像を見る</button>
+
+</div>
+
+
 
 <script>
 
-/* =========================
-   ライブ判定
-========================= */
+/* =================
+   LIVE判定
+================= */
 
-const frame=document.getElementById("liveFrame");
-const status=document.getElementById("status");
+const liveFrame=document.getElementById("liveFrame");
+const liveStatus=document.getElementById("liveStatus");
 
-frame.addEventListener("load",()=>{
+liveFrame.addEventListener("load",()=>{
  setTimeout(()=>{
   try{
-   const url=frame.contentWindow.location.href;
+   const url=liveFrame.contentWindow.location.href;
 
    if(url.includes("watch")){
-     status.innerHTML='<span class="dot"></span>LIVE';
-     status.classList.add("live");
+     liveStatus.innerHTML='<span class="dot"></span>LIVE';
+     liveStatus.classList.add("live");
    }else{
-     status.textContent="STATUS UNKNOWN";
-     status.classList.remove("live");
+     liveStatus.textContent="STATUS UNKNOWN";
+     liveStatus.classList.remove("live");
    }
 
   }catch{
-   status.textContent="STATUS UNKNOWN";
+   liveStatus.textContent="STATUS UNKNOWN";
   }
  },1500);
 });
 
 
-/* =========================
+/* =================
    ランダム動画
-========================= */
+================= */
 
 const videos=[
 "jtHBEX1xwao",
@@ -159,11 +172,12 @@ const videos=[
 
 function playRandom(){
  const random=videos[Math.floor(Math.random()*videos.length)];
- frame.src="https://www.youtube.com/embed/"+random+"?autoplay=1";
-
- status.textContent="ARCHIVE PLAYBACK";
- status.classList.remove("live");
+ document.getElementById("randomFrame").src=
+ "https://www.youtube.com/embed/"+random+"?autoplay=1";
 }
+
+// 初回自動再生
+playRandom();
 
 </script>
 
