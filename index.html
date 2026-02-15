@@ -60,3 +60,81 @@ h1,p{
 
 <p>This space is being observed.</p>
 <p>No audio is transmitted.</p>
+<p>This video is publicly available.</p>
+
+<p dir="rtl">هذه المساحة تحت المراقبة</p>
+<p dir="rtl">لا يوجد صوت</p>
+<p dir="rtl">هذا الفيديو متاح للعامة</p>
+
+
+<!-- 過去動画枠 -->
+<iframe id="pastVideo" width="900" height="506" allowfullscreen></iframe>
+
+<br><br>
+<p>LIVE FEED</p>
+
+<!-- ライブ配信枠 -->
+<div class="liveWrap">
+
+<div id="statusText" class="noSignal">
+STATUS UNKNOWN
+</div>
+
+<iframe
+id="liveFrame"
+width="900"
+height="506"
+src="https://www.youtube.com/embed/live_stream?channel=UC9W371pV3VHzn3BP3B61Drg"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   過去動画ランダム表示
+========================= */
+
+const videos=[
+"jtHBEX1xwao",
+"Z1aGd8W2br0",
+"i5iGwcwmgAw"
+];
+
+const past=document.getElementById("pastVideo");
+
+if(videos.length>0){
+ const random=videos[Math.floor(Math.random()*videos.length)];
+ past.src="https://www.youtube.com/embed/"+random;
+}
+
+
+
+/* =========================
+   ライブ状態チェック
+========================= */
+
+const status=document.getElementById("statusText");
+
+fetch("https://www.youtube.com/channel/UC9W371pV3VHzn3BP3B61Drg/live")
+.then(res=>{
+ if(res.redirected){
+   status.style.display="none"; // 配信中
+ }
+ else{
+   status.style.display="block"; // 配信してない
+ }
+})
+.catch(()=>{
+ status.style.display="block";
+});
+
+</script>
+
+</body>
+</html>
+
