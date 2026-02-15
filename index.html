@@ -13,6 +13,22 @@ body{
  padding-top:5%;
 }
 
+.status{
+ margin-bottom:10px;
+ font-weight:bold;
+ letter-spacing:2px;
+ animation: greenGlow 2.5s ease-in-out infinite;
+ color:#b6ffb6;
+}
+
+/* 光アニメ */
+@keyframes greenGlow{
+0%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
+50%{ text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,.9);}
+100%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
+}
+
+
 iframe{
  border:none;
  margin-top:15px;
@@ -44,6 +60,13 @@ h1,p{
 
 .live{
  color:#ff3b3b;
+ animation:redGlow 1.2s infinite;
+}
+
+@keyframes redGlow{
+0%{text-shadow:0 0 5px #ff0000;}
+50%{text-shadow:0 0 20px #ff0000;}
+100%{text-shadow:0 0 5px #ff0000;}
 }
 
 .dot{
