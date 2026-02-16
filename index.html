@@ -86,7 +86,7 @@ button:hover{
  background:#222;
 }
 
-/* ▼ 追加したハッシュタグ用CSS */
+
 .tags{
  margin-top:80px;
  font-size:11px;
@@ -94,6 +94,15 @@ button:hover{
  letter-spacing:2px;
  font-family:monospace;
  opacity:.8;
+}
+
+.randcode{
+ margin:50px 0;
+ font-size:13px;
+ color:#000;
+ font-family:monospace;
+ letter-spacing:4px;
+ opacity:.7;
 }
 </style>
 </head>
@@ -129,6 +138,9 @@ allowfullscreen>
 
 </div>
 
+
+<div id="rand" class="randcode"></div>
+
 <div class="box">
 
 <div class="status">ARCHIVE RANDOM</div>
@@ -145,7 +157,6 @@ allowfullscreen>
 
 </div>
 
-<!-- ▼ ここが追加部分（最下部表示） -->
 <div class="tags">
 #anomaly #signal #observation #unknownsource #Live Anomaly Feed
 </div>
@@ -187,6 +198,19 @@ function playRandom(){
 }
 
 playRandom();
+
+
+function generateCode(length){
+ const chars="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+ let result="";
+ for(let i=0;i<length;i++){
+  result+=chars[Math.floor(Math.random()*chars.length)];
+ }
+ return result;
+}
+
+document.getElementById("rand").textContent=
+generateCode(Math.floor(Math.random()*6)+8);
 
 </script>
 
