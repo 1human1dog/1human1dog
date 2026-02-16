@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>System Observation Log</title>
 
-
 <style>
 body{
  background:#111;
@@ -22,19 +21,16 @@ body{
  color:#b6ffb6;
 }
 
-
 @keyframes greenGlow{
 0%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
 50%{ text-shadow:0 0 18px rgba(0,255,120,1),0 0 40px rgba(0,255,120,.9);}
 100%{ text-shadow:0 0 4px rgba(0,255,120,.4),0 0 12px rgba(0,255,120,.3);}
 }
 
-
 iframe{
  border:none;
  margin-top:15px;
 }
-
 
 h1,p{
  color:#eaf6ff;
@@ -49,12 +45,6 @@ h1,p{
 
 .box{
  margin:40px auto;
-}
-
-.status{
- margin-bottom:10px;
- font-weight:bold;
- letter-spacing:2px;
 }
 
 .live{
@@ -95,6 +85,16 @@ button{
 button:hover{
  background:#222;
 }
+
+/* ▼ 追加したハッシュタグ用CSS */
+.tags{
+ margin-top:80px;
+ font-size:11px;
+ color:#000;
+ letter-spacing:2px;
+ font-family:monospace;
+ opacity:.8;
+}
 </style>
 </head>
 
@@ -109,14 +109,11 @@ button:hover{
 <p>This space is being observed.</p>
 <p>No audio is transmitted.</p>
 <p>Audio transmission: OFF</p>
-<p>Transmission mode: VIEW ONLY
-</p>
+<p>Transmission mode: VIEW ONLY</p>
 
 <p dir="rtl">هذه المساحة تحت المراقبة</p>
 <p dir="rtl">لا يوجد صوت</p>
 <p dir="rtl">هذا الفيديو متاح للعامة</p>
-
-
 
 <div class="box">
 
@@ -131,8 +128,6 @@ allowfullscreen>
 </iframe>
 
 </div>
-
-
 
 <div class="box">
 
@@ -150,10 +145,12 @@ allowfullscreen>
 
 </div>
 
-
+<!-- ▼ ここが追加部分（最下部表示） -->
+<div class="tags">
+#anomaly #signal #observation #unknownsource
+</div>
 
 <script>
-
 
 const liveFrame=document.getElementById("liveFrame");
 const liveStatus=document.getElementById("liveStatus");
@@ -177,8 +174,6 @@ liveFrame.addEventListener("load",()=>{
  },1500);
 });
 
-
-
 const videos=[
 "jtHBEX1xwao",
 "Z1aGd8W2br0",
@@ -190,7 +185,6 @@ function playRandom(){
  document.getElementById("randomFrame").src=
  "https://www.youtube.com/embed/"+random+"?autoplay=1";
 }
-
 
 playRandom();
 
