@@ -202,6 +202,23 @@ allowfullscreen>
 
 <script>
 
+let observers = Math.floor(Math.random()*120) + 30;
+
+const counterElement = document.getElementById("observerCount");
+
+function updateObservers(){
+  const change = Math.floor(Math.random()*5) - 2; // -2〜+2
+  observers += change;
+
+  if(observers < 12) observers = 12;
+  if(observers > 333) observers = 333;
+
+  counterElement.textContent = "ACTIVE OBSERVERS: " + observers;
+}
+
+updateObservers();
+setInterval(updateObservers, 4000);
+
 const liveFrame=document.getElementById("liveFrame");
 const liveStatus=document.getElementById("liveStatus");
 
